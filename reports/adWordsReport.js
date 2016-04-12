@@ -15,8 +15,8 @@ function AdWordsReport(options) {
   self.getRdxml = function(opts) {
     _.defaults(opts, {
       dateRangeType: 'CUSTOM_DATE',
-      dateMin: '19700101',
-      dateMax: '20380101',
+      dateMin: '20160201',
+      dateMax: '20160229',
       downloadFormat: 'XML',
       fieldNames: self.defaultFieldNames
     });
@@ -54,8 +54,7 @@ function AdWordsReport(options) {
     return xml.toString();
   };
 
-  self.reportUrl = 'https://adwords.google.com/api/adwords/reportdownload/' +
-    self.version;
+  self.reportUrl = 'https://adwords.google.com/api/adwords/reportdownload/' + self.version;
 
   self.getReport = function(options, done) {
     async.series([
@@ -64,7 +63,6 @@ function AdWordsReport(options) {
       // get report
       function(cb) {
         var rdxml = self.getRdxml(options);
-
         var opts = {
           body: '__rdxml=' + encodeURIComponent(rdxml),
           headers: {
@@ -98,6 +96,7 @@ function AdWordsReport(options) {
       downloadFormat: 'XML',
       fieldNames: self.defaultFieldNames
     });
+
 
     var fields = _.map(options.fieldNames, function(fieldName) {
       return {'#text': fieldName};
