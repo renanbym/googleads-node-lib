@@ -53,13 +53,13 @@ function AdWordsService(options) {
             // add some event handling on the client
             self.client.on('request', function(request) {
               if (self.verbose) {
-                console.log('REQUEST:\n', pd.xml(request), '\n');
+                // console.log('REQUEST:\n', pd.xml(request), '\n');
               }
             });
 
             self.client.on('response', function(response) {
               if (self.verbose) {
-                console.log('RESPONSE:\n', pd.xml(response), '\n');
+                // console.log('RESPONSE:\n', pd.xml(response), '\n');
               }
             });
 
