@@ -53,7 +53,7 @@ function AdWordsService(options) {
             // add some event handling on the client
             self.client.on('request', function(request) {
               if (self.verbose) {
-                // console.log('REQUEST:\n', pd.xml(request), '\n');
+                // console.('REQUEST:\n', pd.xml(request), '\n');
               }
             });
 
@@ -64,7 +64,7 @@ function AdWordsService(options) {
             });
 
             self.client.on('soapError', function(error) {
-              console.log('SOAP ERROR:\n', pd.xml(error.body), '\n');
+                if (self.verbose) console.log('SOAP ERROR:\n', pd.xml(error.body), '\n');
             });
 
             // grab some metadata out of the WSDL
